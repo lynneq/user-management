@@ -15,10 +15,11 @@
 //= require_tree .
 
 $(document).ready(function(){
+	$("input[type='submit']").attr("disabled", true);
 	
 	$("#user_name").blur(function(){
-		// alert("Change");
 		var user_name = $("#user_name").val();
+	 
 		$.ajax({
 			type: "POST",
 			data: "user_name="+user_name,
@@ -27,13 +28,20 @@ $(document).ready(function(){
 				$('#nameError').detach()
 				nameErrorDiv = $('<div id="nameError"/>');
 				
-				if(data=='fail')
+				if(data=='fail'){
 					nameErrorDiv.append("User name exist, please use enter a different name")
 				    $("#user_name_div").append(nameErrorDiv);
+				}
+				else{
+					if( user_name=='')
+						$("input[type='submit']").attr("disabled", true);
+					else
+				   		$("input[type='submit']").attr("disabled", false);
+				}
 			}
 		});	
 	});
-	
+
 	$("#new_user").submit(function() {
 				
 		var error_msg = "";
