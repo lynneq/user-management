@@ -19,6 +19,8 @@ $(document).ready(function(){
 	
 	$("#user_name").blur(function(){
 		var user_name = $("#user_name").val();
+		if(user_name =='')
+			return;
 	 
 		$.ajax({
 			type: "POST",
@@ -33,10 +35,7 @@ $(document).ready(function(){
 				    $("#user_name_div").append(nameErrorDiv);
 				}
 				else{
-					if( user_name=='')
-						$("input[type='submit']").attr("disabled", true);
-					else
-				   		$("input[type='submit']").attr("disabled", false);
+				    $("input[type='submit']").attr("disabled", false);
 				}
 			}
 		});	
