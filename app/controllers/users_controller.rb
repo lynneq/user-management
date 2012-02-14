@@ -52,7 +52,15 @@ class UsersController < ApplicationController
       end
     end
   end
-
+  
+  def validate_user_name
+    if User.has_user_name?(params[:user_name])
+      render :text => "fail"        
+    else
+      render :text => "ok"        
+    end
+  end
+  
   # PUT /users/1
   # PUT /users/1.json
   def update

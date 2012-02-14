@@ -15,6 +15,25 @@
 //= require_tree .
 
 $(document).ready(function(){
+	
+	$("#user_name").blur(function(){
+		// alert("Change");
+		var user_name = $("#user_name").val();
+		$.ajax({
+			type: "POST",
+			data: "user_name="+user_name,
+			url : "/users/utility/validate_name",
+			success : function(data){
+				$('#nameError').detach()
+				nameErrorDiv = $('<div id="nameError"/>');
+				
+				if(data=='fail')
+					nameErrorDiv.append("User name exist, please use enter a different name")
+				    $("#user_name_div").append(nameErrorDiv);
+			}
+		});	
+	});
+	
 	$("#new_user").submit(function() {
 				
 		var error_msg = "";
