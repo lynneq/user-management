@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-user_one:
+one:
     name: new_name_1
     first_name: lina
     last_name: qu
@@ -9,7 +9,7 @@ user_one:
     phone: 312-999-9999
     address: Chicago
 
-user_two:
+two:
     name: new_name_2
     first_name: lina
     last_name: qu

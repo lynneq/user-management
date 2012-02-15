@@ -7,29 +7,27 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_should_user_record_valid_with_all_required_values_filled
-    user       = users(:user_one)
+    user       = users(:one)
     assert user.save
   end
 
   def test_should_user_record_fail_to_save_without_name
-    user      = users(:user_one)
+    user      = users(:one)
     user.name = ''
     assert !user.save
   end
 
   def test_should_user_record_not_valid_with_same_name
-    user1 = users(:user_one)
+    user1 = users(:one)
     assert user1.save
 
-    user2 = users(:user_two)
+    user2 = users(:two)
     user2.name = "new_name_1"
     assert !user2.save
   end
 
   def test_should_user_record_fail_to_save_without_password
-    user = users(:user_one)
-    user.name = "new_name_2"
-    user.password = ''
+    user = User.new :name => 'new_name', :email => "name@example.com"
     assert !user.save
   end
 
@@ -39,19 +37,19 @@ class UserTest < ActiveSupport::TestCase
   end
 
   def test_should_user_recored_save_when_password_confirmation_match_password
-    user = users(:user_one)
+    user = users(:one)
     user.password_confirmation = 'asdf'
     assert user.save
   end
 
   def test_should_user_recored_fail_to_save_when_password_confirmation_not_match_password
-    user = users(:user_one)
+    user = users(:one)
     user.password_confirmation = 'asdfasdf'
     assert !user.save
   end
 
   def test_should_user_record_fail_to_save_when_email_fail_to_match_pattern
-    user = users(:user_one)
+    user = users(:one)
     user.email = "name@example"
 
     regexp = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
