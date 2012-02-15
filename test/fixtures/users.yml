@@ -1,17 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  address: MyString
+user_one:
+    name: new_name_1
+    first_name: lina
+    last_name: qu
+    password: asdf
+    email: lqu@thoughtworks.com
+    phone: 312-999-9999
+    address: Chicago
 
-two:
-  name: MyString
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  address: MyString
+user_two:
+    name: new_name_2
+    first_name: lina
+    last_name: qu
+    password: asdf
+    email: lqu@thoughtworks.com
+    phone: 312-999-9999
+    address: Chicago
