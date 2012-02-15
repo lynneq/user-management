@@ -18,9 +18,10 @@ class UsersControllerTest < ActionController::TestCase
 
   test "should create user" do
     assert_difference('User.count') do
+      @user.name = "new_name" # cause cannot has the same name
       post :create, user: @user.attributes
     end
-
+    
     assert_redirected_to user_path(assigns(:user))
   end
 
@@ -45,5 +46,16 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to users_path
+  end
+  
+  test "should validate user name" do
+    @user.name = 'brand_new_name'
+    get :validate_user_name, user_name: @user
+    assert_response :success
+  end
+  
+  test "should validate user name fail" do
+    get :validate_user_name, user_name: @user
+    assert_response :success
   end
 end
