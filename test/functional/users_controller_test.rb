@@ -50,12 +50,17 @@ class UsersControllerTest < ActionController::TestCase
   
   test "should validate user name" do
     @user.name = 'brand_new_name'
-    get :validate_user_name, user_name: @user
+    get :validate_user_name, user_name: @user.name
     assert_response :success
+    assert_equal "ok", @response.body
   end
   
   test "should validate user name fail" do
-    get :validate_user_name, user_name: @user
+    user2 = @user.clone
+    user2.name = "new_name_1"
+    get :validate_user_name, user_name: user2.name
+    
     assert_response :success
+    assert_equal  "fail" , @response.body 
   end
 end
