@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20120216173255) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
-    t.time     "member_since"
+    t.date     "member_since"
     t.string   "level"
     t.text     "description"
     t.datetime "created_at",   :null => false

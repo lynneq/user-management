@@ -2,6 +2,10 @@ UserApp::Application.routes.draw do
   resources :users
   
   post "/users/utility/validate_name" => "users#validate_user_name", :as => :validate_user_name
+  
+  resources :accounts
+  post "/accounts/utility/validate_name" => "accounts#validate_account_name", :as => :validate_account_name
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

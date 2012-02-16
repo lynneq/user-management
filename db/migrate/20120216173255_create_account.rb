@@ -2,7 +2,7 @@ class CreateAccount < ActiveRecord::Migration
   def up
     create_table :accounts do |t|
       t.string :name
-      t.time :member_since
+      t.date :member_since
       t.string :level
       t.text :description
       

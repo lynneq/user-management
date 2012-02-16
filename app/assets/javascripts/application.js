@@ -17,6 +17,32 @@
 $(document).ready(function(){
 	$("input[type='submit']").attr("disabled", true);
 	
+	$("#account_name").blur(function(){
+		var account_name = $("#account_name").val();
+		if(account_name =='')
+			return;
+	 
+		$.ajax({
+			type: "POST",
+			data: "account_name="+account_name,
+			url : "/accounts/utility/validate_name",
+			success : function(data){
+				$('#nameError').detach()
+				nameErrorDiv = $('<div id="nameError"/>');
+				
+				if(data=='fail'){
+					nameErrorDiv.append("Account name exist, please use enter a different name")
+				    $("#account_name_div").append(nameErrorDiv);
+				}
+				else{
+				    $("input[type='submit']").attr("disabled", false);
+				}
+			}
+		});	
+	});
+	
+	
+	
 	$("#user_name").blur(function(){
 		var user_name = $("#user_name").val();
 		if(user_name =='')
