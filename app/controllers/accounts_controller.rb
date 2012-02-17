@@ -14,7 +14,6 @@ class AccountsController < ApplicationController
   # GET /accounts/1.json
   def show
     @account = Account.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @account }
@@ -25,7 +24,7 @@ class AccountsController < ApplicationController
   # GET /accounts/new.json
   def new
     @account = Account.new
-
+    @user = @User.all  
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @account }
@@ -35,6 +34,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1/edit
   def edit
     @account = Account.find(params[:id])
+    @user = User.all    
   end
 
   # POST /accounts
@@ -44,9 +44,12 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.save
+        @user = @account.user
         format.html { redirect_to @account, notice: 'Account was successfully created.' }
         format.json { render json: @account, status: :created, location: @account }
       else
+        @users = User.find(:all)
+        
         format.html { render action: "new" }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end

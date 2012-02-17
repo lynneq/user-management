@@ -1,5 +1,6 @@
 class Account < ActiveRecord::Base
-  belongs_to :user
+  has_one :account_user
+  has_one :user, :through => :account_user
   
   validates_presence_of :name
   validates_uniqueness_of :name
@@ -12,4 +13,4 @@ class Account < ActiveRecord::Base
     end
     return false    
   end
-end
+end     
