@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  # has_one :account
+  has_one :account :through => :user
 
   validates_presence_of :name
   validates_uniqueness_of :name
