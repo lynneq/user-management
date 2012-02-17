@@ -11,10 +11,19 @@
     </div>
   <% end %>
 
+<% if @user.new_record? %>
   <div class="field" id= "user_name_div">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+<% end %>
+
+<% if !@user.new_record? %>
+  <div class="field" id= "user_name_div">
+    <strong><%= f.label :name %></strong><br />
+    <%= @user.name %>
+  </div>
+<% end %>
 
   <div class="field">
     <%= f.label :password %><br />
@@ -42,11 +51,22 @@
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
   </div>
-  <div class="field">
+  <div class="field" id="user_address_div">
     <%= f.label :address %><br />
     <%= f.text_field :address %>
   </div>
-  <div class="actions">
-    <%= f.submit "Register"%>
+
+<% if @user.new_record? %>
+  <div class = "actions" id = "new_user_form">
+	<%= f.submit "Register"%>
   </div>
+<% end %>
+
+<% if !@user.new_record? %>
+  <div class = "actions" id = "update_user_form">
+ 	<%= f.submit "Update"%>
+  </div>
+<% end %>
+
+
 <% end %>
