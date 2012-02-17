@@ -11,15 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field" id= "account_name_div">
+<% if @account.new_record? %>
+  <div class="field" id= "new_account_name_div">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+<% end %>
+
+<% if !@account.new_record? %>
+  <div class = "field" id="show_account_name_div">
+	<strong><%= f.label :name %></strong><br />
+	<div id="show_account_name"><%= @account.name %></div>
+  </div>
+<% end %>
 
   <div class="field">
     <%= f.label :level %><br />
     <%= f.text_field :level %>
-  </div>
+  </div> 
 
   <div class="field">
     <%= f.label :member_since %><br />
@@ -30,7 +39,17 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
-  <div class="actions">
+
+<% if @account.new_record? %>
+  <div class="actions" id = "new_account_form">
     <%= f.submit "Create"%>
   </div>
+<% end %>
+
+<% if !@account.new_record? %>
+  <div class="actions" id = "update_account_form">
+    <%= f.submit "Update"%>
+  </div>
+<% end %>
+
 <% end %>
