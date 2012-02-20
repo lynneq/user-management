@@ -3,7 +3,6 @@ class AccountsController < ApplicationController
   # GET /accounts.json
   def index
     @accounts = Account.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @accounts }
@@ -13,7 +12,9 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
-    @account = Account.find(params[:id])
+    @account = Account.find(params[:id])    
+    @user = @account.user
+        
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @account }
@@ -24,7 +25,7 @@ class AccountsController < ApplicationController
   # GET /accounts/new.json
   def new
     @account = Account.new
-    @user = @User.all  
+    @user = User.all  
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @account }
