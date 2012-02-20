@@ -15,9 +15,12 @@
 <% @accounts.each do |account| %>
   <tr>
     <td><%= account.name %></td>
-	<% if !account.user.nil? %>
-    <td><%= account.user.name %></td>
+	
+    <td>
+	<% if !account.user_id.nil? %>
+		<%= account.user.name %>
 	<% end %>
+	</td>
     <td><%= account.level %></td>
     <td><%= account.member_since %></td>
     <td><%= account.description %></td>

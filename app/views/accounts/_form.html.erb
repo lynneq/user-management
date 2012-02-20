@@ -27,7 +27,8 @@
 
   <div class = "field">
 	<%= f.label :user_id %><br />
-	<%= f.collection_select :user_id, @user, :id, :name, :prompt => "Select a user" %>
+	<!-- <%= f.collection_select :user_id, @user, :id, :name, :prompt => "Select a user" %> -->
+	<%= f.collection_select :user_id, User.find_by_sql("select * from users where id not in (select user_id from accounts)"), :id, :name, :prompt => "Select a user" %>
   </div>
 
   <div class="field">

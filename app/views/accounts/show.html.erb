@@ -4,10 +4,11 @@
   <b>Name:</b>
   <%= @account.name %>
 </p>
-
 <p>
   <b>User name:</b>
+<% if !@account.user.nil? %>
   <%= @account.user.name %>
+<% end %>
 </p>
 
 <p>
