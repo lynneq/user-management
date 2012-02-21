@@ -1,4 +1,6 @@
 UserApp::Application.routes.draw do
+  resources :user_events
+
   resources :users
   
   post "/users/utility/validate_name" => "users#validate_user_name", :as => :validate_user_name

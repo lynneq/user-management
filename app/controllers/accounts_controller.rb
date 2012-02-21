@@ -49,8 +49,7 @@ class AccountsController < ApplicationController
         format.html { redirect_to @account, notice: 'Account was successfully created.' }
         format.json { render json: @account, status: :created, location: @account }
       else
-        @users = User.find(:all)
-        
+        @user = User.find(:all)        
         format.html { render action: "new" }
         format.json { render json: @account.errors, status: :unprocessable_entity }
       end

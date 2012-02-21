@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_one :account, :dependent => :destroy
+  
+  has_many :user_events, :dependent => :destroy
 
   validates_presence_of :name
   validates_uniqueness_of :name

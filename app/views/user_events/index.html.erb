@@ -1,0 +1,29 @@
+<h1>Listing user_events</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Event date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_events.each do |user_event| %>
+  <tr>
+    <td>
+	<% if !user_event.user_id.nil? %>
+		<%= user_event.user.name %>
+	<% end %>
+	</td>
+    <td><%= user_event.event_date %></td>
+    <td><%= link_to 'Show', user_event %></td>
+    <td><%= link_to 'Edit', edit_user_event_path(user_event) %></td>
+    <td><%= link_to 'Destroy', user_event, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User event', new_user_event_path %>
