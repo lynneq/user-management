@@ -46,6 +46,11 @@ class UserEventsController < ApplicationController
     respond_to do |format|
       if @user_event.save
         @user = @user_event.user
+        EventMailer.event_reminder(@user_event).deliver
+        logger.debug("--------------")        
+        logger.debug(@user_event.user.name)
+        logger.debug(@user_event.user.email)
+        logger.debug("--------------")
         format.html { redirect_to @user_event, notice: 'User event was successfully created.' }
         format.json { render json: @user_event, status: :created, location: @user_event }
       else
