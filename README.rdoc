@@ -1,9 +1,19 @@
-Ruby on Rails user_app:
+Ruby on Rails Play_Ground:
 1. simple user register application, with model side validation
 2. add jquery to validate form in views
 3. add ajax to validate user_name in views
 4. add account, one-to-one relationship with user. delete either will delete the other.
 5. add user_event. sending email reminder when create the event.
 6. start send email notification 4 days in advance, if rsvp within the 4days, also send the email.
-7. use Rakefile to execute the task, add schedule.rb by 'whenever' gem to execute the cron task.
-  
+7. use Rakefile to execute the notification task, add schedule.rb by 'whenever' gem to execute the cron task.
+8. Steps
+   add this line to Gemfile
+   gem 'whenever' 
+   bundle install 
+
+   run these to add the cron task to the system
+   $ whenever -w 
+   or 
+   $ whenever --update-crontab
+   show the cron task currently in
+   $ crontab -l

@@ -18,13 +18,14 @@
 # end
 
 # Using: whenever gem
+# wheneverize. # create config/schedule.rb
+# whenever -w
 # whenever --update-crontab
 
 
 require 'rubygems'
-every 1.day, :at => '1:39 pm' do 
+every 1.day, :at => '4:07 pm' do 
   puts '--working--'
-  rake "user_events:notify_email"
+  rake "user_events:notify_email RAILS_ENV=development" # Default won't send the email cause it's in production mode.
   puts '--done--'
 end
-
