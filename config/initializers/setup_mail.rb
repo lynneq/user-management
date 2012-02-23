@@ -5,7 +5,7 @@ ActionMailer::Base.smtp_settings = {
   :port                 => 587,
   :domain               => "linaqu.info",
   :user_name            => "cssa.loyola@gmail.com",
-  :password             => "loyolacssa@@",
+  :password             => "LoyolaCssa2012@@",
   :authentication       => "plain",
   :enable_starttls_auto => true
 }

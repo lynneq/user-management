@@ -2,3 +2,5 @@ Ruby on Rails user_app:
 1. simple user register application, with model side validation
 2. add jquery to validate form in views
 3. add ajax to validate user_name in views
+4. add account, one-to-one relationship with user. delete either will delete the other.
+5. add user_event. sending email reminder when create the event.

@@ -5,3 +5,18 @@
 require File.expand_path('../config/application', __FILE__)
 
 UserApp::Application.load_tasks
+
+namespace :user_events do
+  desc "Email whom RSVP the event!"
+  task :notify_email => :environment do
+    date = ENV['from'] ? Date.parse(ENV['from']) : Date.today
+    puts date
+    user_events = UserEvent.find(:all)
+    user_events.each do |user_event|
+      EventMailer.event_reminder(user_event).deliver
+      puts user_event.event_date
+      puts 'sent'
+    end
+    # UserEvent.notify_rsvp_users(date)
+  end
+end
