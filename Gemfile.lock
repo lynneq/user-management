@@ -31,6 +31,7 @@ GEM
     arel (3.0.0)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    chronic (0.6.7)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -117,6 +118,9 @@ GEM
       multi_json (>= 1.0.2)
     vegas (0.1.11)
       rack (>= 1.0.0)
+    whenever (0.7.2)
+      activesupport (>= 2.3.4)
+      chronic (~> 0.6.3)
 
 PLATFORMS
   ruby
@@ -131,3 +135,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
+  whenever

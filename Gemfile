@@ -39,4 +39,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'delayed_job'
 gem 'resque'
-
+gem 'whenever', :require => false

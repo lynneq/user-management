@@ -4,3 +4,6 @@ Ruby on Rails user_app:
 3. add ajax to validate user_name in views
 4. add account, one-to-one relationship with user. delete either will delete the other.
 5. add user_event. sending email reminder when create the event.
+6. start send email notification 4 days in advance, if rsvp within the 4days, also send the email.
+7. use Rakefile to execute the task, add schedule.rb by 'whenever' gem to execute the cron task.
+  
